@@ -2,11 +2,18 @@
 
 ## - Topik Pembahasan
 >1.kenapa harus bahasa dart?
+
 >2.dasar pemrograman dart
+
 >3.komentar
+
 >4.variabel 
->5.tipe data
->6.operator
+
+>5.konstanta
+
+>6.tipe data
+
+>7.operator
 ## 1. Dart
 dart merupakan sebuah bahasa pemrograman yang di rancang untuk membuat aplikasi dengan cepat dan mudah. dart adalah aplikasi yang bekerja di bagian front end. seperti web, desktop dan mobile.
 ### kelebihan dart
@@ -40,13 +47,13 @@ yaitu jenis komentar yang memberikan catatan untuk satu baris saja
 >- awal garis miring bintang (/*) akhir bintang garis miring (*/)
 yaitu untuk memberikan catatan lebih dari satu baris
 
-## 3. Variabel
+## 4. Variabel
 #### a. deskripsi
 >- digunakan untuk menyimpan data
 >- memiliki nama
 >- memiliki tipe data
 
-## 4. konstanta
+## 5. konstanta
 #### a. deskripsi
 >- digunakan untuk menyimpan data
 >- memiliki nama
@@ -57,7 +64,7 @@ contoh:
     final usia = 18;
 }
 
-## 4. tipe data
+## 6. tipe data
 #### a. deskripsi
 >- jenis data yang dapat dikelola
 >- tipe data sederhana disebut primitiv data type
@@ -69,7 +76,7 @@ penulisan pecahan harus dengan tanda titik(.)
 >- string ==> teks
 penulisan string di awali dengan tanda kutip("")
 
-## 4. operator
+## 7. operator
 #### a. deskripsi
 >- digunakan untuk operasi data
 >- data yang dikelola disebut dengan operan
