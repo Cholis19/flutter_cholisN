@@ -83,18 +83,21 @@ yaitu kumpulan kode yang dapat digunakan ulang
 >- kumpulan perintah
 >- dapat digunakan berkali-kali
 > cukup mengubah fungsi sekali, pengguna lainnya akan ikut berubah
->- contoh fungsi biasa:
+
+ contoh fungsi :
 void main(){
     halo();
 }
->- contoh fungsi dengan parameter:
+
+contoh fungsi dengan parameter:
 void tampil(String teks){
     perintah(teks);
 }
 void main(){
     tampil('halo');
 }
->- contoh fungsi dengan return:
+
+contoh fungsi dengan return:
 int jumlah(int a, int b){
     return a + b;
 }
