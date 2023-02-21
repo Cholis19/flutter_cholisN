@@ -101,11 +101,6 @@ int jumlah(int a, int b){
 void main(){
     var hasil = jumlah(1, 2);
 }
->- nilai tetap (tidak dapat di rubah)
-contoh:
->- void main(){
-    final usia = 18;
-}
 
    [dill]: <https://github.com/joemccann/dillinger>
    [git-repo-url]: <https://github.com/joemccann/dillinger.git>
