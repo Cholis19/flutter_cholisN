@@ -4,7 +4,7 @@
 >1.fungsi (lanjutan)
 >2.async-await
 >3.tipe data future
->4.clooection 
+>4.colloection 
 
 ## 1. fungsi (lanjutan)
 #### a. anonymous functio
