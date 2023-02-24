@@ -1,10 +1,10 @@
 # ADVANCE FUNCTION, ASYNC AWAIT, COLLECTION DART
 
 ## - Topik Pembahasan
->1.fungsi (lanjutan)
->2.async-await
->3.tipe data future
->4.clooection 
+> 1.fungsi (lanjutan)
+> 2.async-await
+> 3.tipe data future
+> 4.collection 
 
 ## 1. fungsi (lanjutan)
 #### a. anonymous functio
