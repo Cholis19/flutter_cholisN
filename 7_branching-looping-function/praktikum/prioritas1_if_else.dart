@@ -1,7 +1,9 @@
+import 'dart:io';
+
 void main() {
   //deklarasikan variabel
-  var nilai = 80;
-
+  print("Masukan nilai anda : ");
+  int? nilai = int.parse(stdin.readLineSync()!);
   //if statement
   if (nilai > 70) {
     print('nilai A');
@@ -10,6 +12,6 @@ void main() {
   } else if (nilai > 0 && nilai < 40) {
     print('nilai c');
   } else {
-    print('teks kosong');
+    print('');
   }
 }
