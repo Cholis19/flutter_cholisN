@@ -54,6 +54,8 @@ Stateful Widget merupakan widget yang dinamis dan dapat berubah. Berbanding terb
 ##### membuat stateful widget
 ![statefull 1](https://user-images.githubusercontent.com/90263441/224559547-15c06251-4a78-4414-bb26-cd5a3b670403.jpeg)
 
+![staefull 2](https://user-images.githubusercontent.com/90263441/224559610-fbac4266-c0cf-4ecf-bc22-eaf30b24a4d6.jpeg)
+
 
 ## 4. built in widget
 yaitu membangun tampilan pada sebuah aplikasi menggunakan flutter seperti tombol, gambar, teks, list, ikon, bahkan satu layar pada handphone tersebut merupakan sekumpulan dari banyak widget.
