@@ -41,6 +41,7 @@ Stateless widget adalah widget yang hanya bertugas untuk menampilkan sesuatu sec
 >- dibuat dengan extends pada class StatelessWidget
 
 ##### membuat sateteless widget
+![stateless widget](https://user-images.githubusercontent.com/90263441/224559402-78fcf40f-1c6f-4d59-b84f-0e6d3c3fbdb1.jpeg)
 
 
 ## 3.statefull widget
