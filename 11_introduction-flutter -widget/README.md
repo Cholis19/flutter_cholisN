@@ -52,6 +52,7 @@ Stateful Widget merupakan widget yang dinamis dan dapat berubah. Berbanding terb
 >- 1 widget menggunakan 2 class (widget dan state)
 
 ##### membuat stateful widget
+![statefull 1](https://user-images.githubusercontent.com/90263441/224559547-15c06251-4a78-4414-bb26-cd5a3b670403.jpeg)
 
 
 ## 4. built in widget
