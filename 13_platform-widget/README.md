@@ -15,7 +15,8 @@ yaitu salah satu properti yang dimiliki scaffold widget untuk membuat bar pada a
 Secara default ketika kita pertama kali buat projek di Flutter maka, defaultnya adalah akan menggunakan material.dart yang mana didalam package tersebut terdapat beberapa widget dengan style Android atau Material Design.
 #### a. cupertinopagescaffold
 CupertinoPageScaffold merupakan widget style iOS dari Scaffold. Jika kita pakai Scaffold maka kodenya seperti berikut.
-**struktur**
+
+###### **struktur:**
 membentuk tata letak dasar sebuah halaman yang ditulis melalui properti-properti.
 
 
