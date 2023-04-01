@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-class FormUpdate extends StatelessWidget {
+class FormUpdate extends StatefulWidget {
   const FormUpdate({super.key});
 
+  @override
+  State<FormUpdate> createState() => _FormUpdateState();
+}
+
+class _FormUpdateState extends State<FormUpdate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

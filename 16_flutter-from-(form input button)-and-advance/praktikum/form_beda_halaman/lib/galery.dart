@@ -1,56 +1,127 @@
 import 'package:flutter/material.dart';
+import 'scGalery.dart';
 
 class galery extends StatefulWidget {
   const galery({super.key});
 
   @override
-  State<galery> createState() => _galeryState();
+  State<galery> createState() => _galeryState('image', 'nama');
 }
 
-class _galeryState extends State<galery> with SingleTickerProviderStateMixin {
+class _galeryState extends State<galery> {
+  final String image;
+  final String nama;
+  _galeryState(this.image, this.nama);
+
+  final List<AssetImage> foto = [
+    AssetImage("images/gambar1.jpg"),
+    AssetImage("images/gambar2.jpg"),
+    AssetImage("images/gambar3.jpg"),
+    AssetImage("images/gambar4.jpg"),
+    AssetImage("images/gambar5.jpg"),
+    AssetImage("images/gambar6.jpg"),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Galery'),
-        ),
-        body: GridView.count(
+      appBar: AppBar(
+        title: Text('Galery'),
+      ),
+      body: GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisSpacing: 0,
+          mainAxisSpacing: 0,
           crossAxisCount: 2,
-          padding: const EdgeInsets.all(5),
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          children: <Widget>[
-            Image(
-              image: AssetImage('images/gambar1.jpg'),
-              height: 100,
-              width: 100,
+        ),
+        itemCount: foto.length,
+        itemBuilder: (context, index) {
+          return new GestureDetector(
+            onTap: () {
+              showModalBottomSheet(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                        title: const Text('Tampilkan gambar'),
+                        content: scGalery(
+                            image: foto[index].assetName,
+                            nama: foto[index].assetName),
+                        actions: <Widget>[
+                          TextButton(
+                            onPressed: () => Navigator.pop(context, 'Cancel'),
+                            child: const Text('Cancel'),
+                          ),
+                          TextButton(
+                            onPressed: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => scGalery(
+                                        image: foto[index].assetName,
+                                        nama: foto[index].assetName))),
+                            child: const Text('OK'),
+                          ),
+                        ],
+                      )
+                  // scGalery(
+                  //     image: foto[index].assetName, nama: foto[index].assetName),
+
+                  );
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) => scGalery(
+              //         image: foto[index].assetName,
+              //         nama: foto[index].assetName),
+              //   ),
+              // );
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage(foto[index].assetName),
+                ),
+              ),
             ),
-            Image(
-              image: AssetImage('images/gambar2.jpg'),
-              height: 100,
-              width: 100,
-            ),
-            Image(
-              image: AssetImage('images/gambar3.jpg'),
-              height: 100,
-              width: 100,
-            ),
-            Image(
-              image: AssetImage('images/gambar4.jpg'),
-              height: 100,
-              width: 100,
-            ),
-            Image(
-              image: AssetImage('images/gambar5.jpg'),
-              height: 100,
-              width: 100,
-            ),
-            Image(
-              image: AssetImage('images/gambar6.jpg'),
-              height: 100,
-              width: 100,
-            ),
-          ],
-        ));
+          );
+          // Item rendering
+        },
+      ),
+
+      // body: GridView.count(
+      // crossAxisCount: 2,
+      // padding: const EdgeInsets.all(5),
+      // crossAxisSpacing: 10,
+      // mainAxisSpacing: 10,
+      // children: <Widget>[
+      //   Image(
+      //     image: AssetImage('images/gambar1.jpg'),
+      //   ),
+      //   Image(
+      //     image: AssetImage('images/gambar2.jpg'),
+      //     height: 100,
+      //     width: 100,
+      //   ),
+      //   Image(
+      //     image: AssetImage('images/gambar3.jpg'),
+      //     height: 100,
+      //     width: 100,
+      //   ),
+      //   Image(
+      //     image: AssetImage('images/gambar4.jpg'),
+      //     height: 100,
+      //     width: 100,
+      //   ),
+      //   Image(
+      //     image: AssetImage('images/gambar5.jpg'),
+      //     height: 100,
+      //     width: 100,
+      //   ),
+      //   Image(
+      //     image: AssetImage('images/gambar6.jpg'),
+      //     height: 100,
+      //     width: 100,
+      //   ),
+      // ],
+    );
   }
 }
