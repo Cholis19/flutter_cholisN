@@ -39,7 +39,6 @@ class _FormInputState extends State<FormInput> {
                   ),
                   SizedBox(height: 10),
                   TextFormField(
-                    controller:,
                       decoration: new InputDecoration(
                     hintText: "masukan nama ",
                     labelText: "Nama Kontak",
@@ -49,7 +48,6 @@ class _FormInputState extends State<FormInput> {
                     ),
                   )),
                   TextFormField(
-
                     keyboardType: TextInputType.phone,
                     decoration: new InputDecoration(
                       hintText: "contoh: 0812xxxxxxx",
@@ -61,14 +59,12 @@ class _FormInputState extends State<FormInput> {
                   ),
                   ElevatedButton(
                       onPressed: () {
-                        if(_formKey.currentState!.validate()){
-                          
-                        }
+                        if (_formKey.currentState!.validate()) {}
                         setState(() {
                           nama.add(_nama.text);
                           nomor.add(_nomor.text);
                         });
-                        
+
                         Navigator.pop(context);
                       },
                       child: Text('Simpan')),
