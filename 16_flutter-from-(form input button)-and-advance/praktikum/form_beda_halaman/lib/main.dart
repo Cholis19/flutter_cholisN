@@ -3,16 +3,11 @@ import 'package:form_advanc/update.dart';
 import 'screen.dart';
 import 'galery.dart';
 import 'scGalery.dart';
+import 'beranda.dart';
+import 'package:path_provider/path_provider.dart';
 
 void main() {
-  runApp(MyApp(
-      // initialRoute: '/',
-      // routes: <String, WidgetBuilder>{
-      //   '/': (context) => MyHomePage(),
-      //   '/about': (context) => FormInput(),
-      //   '//about': (context) => FormUpdate(),
-      // },
-      ));
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -22,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Contact',
-      home: galery(),
+      home: beranda(),
     );
   }
 }
@@ -35,11 +30,29 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  List<String> nama = [
+    "Clementine Bauch",
+    "Patricia Lebsack",
+    "Chelsey Dietrich",
+    "Mrs. Dennis Schulist",
+    "Kurtis Weisnat",
+    "Leane Graham",
+    "Ervin Howell"
+  ];
+  List<String> nomor = [
+    '1-770-736-8031 x56442',
+    '010-692-6593 x09125',
+    '1-477-935-8478 x6430',
+    '210.067.6132',
+    '1-463-123-4447',
+    '493-170-9623 x156',
+    '(254)954-1289',
+  ];
+  final _formKey = GlobalKey<FormState>();
+  final _nama = TextEditingController();
+  final _nomor = TextEditingController();
   int _selectedIndex = 0;
-  // final List<Widget> _screenList = <Widget>[
-  //   MyHomePage(),
-  //   galery(),
-  // ];
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -55,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
           IconButton(
             icon: Icon(Icons.add),
             onPressed: () {
-              Navigator.pushNamed(context, '/about');
+              Navigator.of(context).push(_createRoute());
             },
           ),
           Container(
@@ -63,56 +76,68 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      body: Center(
+      body: Form(
         child: SafeArea(
-          child: Column(children: [
-            // Container(
-            //   child: _screenList.elementAt(_selectedIndex),
-            // ),
-            ListTile(
-              title: Text('nama kontak'),
-              subtitle: Text('0864633xxx'),
-              leading: CircleAvatar(
-                child: Text('A', style: TextStyle(fontSize: 20)),
-                backgroundColor: Colors.green,
-              ),
-              trailing: Wrap(
-                children: [
-                  IconButton(
-                    icon: Icon(Icons.edit, color: Colors.grey),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '//about');
-                    },
-                  ),
-                  SizedBox(width: 10),
-                  IconButton(
-                    icon: Icon(Icons.delete, color: Colors.red),
-                    onPressed: () {
-                      // Navigator.pushNamed(context, '//about');
-                    },
-                  ),
-                ],
-              ),
-            ),
-          ]),
+          child: ListView.builder(
+            itemCount: nama.length,
+            itemBuilder: (context, index) {
+              return Card(
+                  child: ListTile(
+                title: Text(
+                  nama[index],
+                ),
+                subtitle: Text(
+                  nomor[index],
+                ),
+                leading: CircleAvatar(
+                  child: Text(nama[index][0]),
+                ),
+                trailing: Wrap(
+                  children: [
+                    IconButton(
+                      icon: Icon(Icons.edit, color: Colors.grey),
+                      onPressed: () {
+                        setState(() {
+                          // nama.replaceRange(index);
+                        });
+                      },
+                    ),
+                    SizedBox(width: 10),
+                    IconButton(
+                      icon: Icon(Icons.delete, color: Colors.red),
+                      onPressed: () {
+                        setState(() {
+                          nama.removeAt(index);
+                        });
+                      },
+                    ),
+                  ],
+                ),
+              ));
+              
+            },
+          
+          ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.photo_library),
-            label: 'Galery',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
-        showUnselectedLabels: true,
-        onTap: _onItemTapped,
       ),
     );
   }
+}
+
+Route _createRoute() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => const FormInput(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      const begin = Offset(0.0, 1.0);
+      const end = Offset.zero;
+      const curve = Curves.ease;
+
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+      return SlideTransition(
+        position: animation.drive(tween),
+        child: child,
+      );
+    },
+  );
 }

@@ -39,6 +39,7 @@ dependencies:
   intl: ^0.18.0
   path_provider: ^2.0.14
   modal_bottom_sheet: ^2.1.2
+  provider: ^6.0.5
 
 dev_dependencies:
   flutter_test:

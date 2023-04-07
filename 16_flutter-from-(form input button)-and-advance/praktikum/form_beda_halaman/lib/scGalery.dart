@@ -4,6 +4,7 @@ import 'galery.dart';
 class scGalery extends StatelessWidget {
   final String image;
   final String nama;
+
   scGalery({Key? key, required this.image, required this.nama})
       : super(key: key);
 

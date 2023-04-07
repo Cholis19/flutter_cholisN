@@ -1,8 +1,19 @@
 import 'package:flutter/material.dart';
+import 'main.dart';
 
-class FormInput extends StatelessWidget {
+class FormInput extends StatefulWidget {
   const FormInput({super.key});
 
+  @override
+  State<FormInput> createState() => _FormInputState();
+}
+
+class _FormInputState extends State<FormInput> {
+  List nama = [];
+  List nomor = [];
+  final _formKey = GlobalKey<FormState>();
+  final _nama = TextEditingController();
+  final _nomor = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,6 +21,7 @@ class FormInput extends StatelessWidget {
           title: Text('create kontak'),
         ),
         body: SafeArea(
+            key: _formKey,
             child: Padding(
                 padding: const EdgeInsets.all(25.0),
                 child: Column(children: [
@@ -26,7 +38,8 @@ class FormInput extends StatelessWidget {
                     textAlign: TextAlign.justify,
                   ),
                   SizedBox(height: 10),
-                  TextField(
+                  TextFormField(
+                    controller:,
                       decoration: new InputDecoration(
                     hintText: "masukan nama ",
                     labelText: "Nama Kontak",
@@ -36,6 +49,7 @@ class FormInput extends StatelessWidget {
                     ),
                   )),
                   TextFormField(
+
                     keyboardType: TextInputType.phone,
                     decoration: new InputDecoration(
                       hintText: "contoh: 0812xxxxxxx",
@@ -45,7 +59,19 @@ class FormInput extends StatelessWidget {
                           borderRadius: new BorderRadius.circular(5.0)),
                     ),
                   ),
-                  ElevatedButton(onPressed: () {}, child: Text('Simpan'))
+                  ElevatedButton(
+                      onPressed: () {
+                        if(_formKey.currentState!.validate()){
+                          
+                        }
+                        setState(() {
+                          nama.add(_nama.text);
+                          nomor.add(_nomor.text);
+                        });
+                        
+                        Navigator.pop(context);
+                      },
+                      child: Text('Simpan')),
                 ]))));
   }
 }
