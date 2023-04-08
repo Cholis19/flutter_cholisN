@@ -4,10 +4,19 @@ import 'screen.dart';
 import 'galery.dart';
 import 'scGalery.dart';
 import 'beranda.dart';
-import 'package:path_provider/path_provider.dart';
+import 'update.dart';
+import 'contact.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(
+        create: (_) => Contact(),
+      )
+    ],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -51,6 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final _formKey = GlobalKey<FormState>();
   final _nama = TextEditingController();
   final _nomor = TextEditingController();
+  final contactProvider = Provider.of<Contact>;
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -97,9 +107,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     IconButton(
                       icon: Icon(Icons.edit, color: Colors.grey),
                       onPressed: () {
-                        setState(() {
-                          // nama.replaceRange(index);
-                        });
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => FormUpdate(),
+                            ));
                       },
                     ),
                     SizedBox(width: 10),
@@ -107,7 +119,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       icon: Icon(Icons.delete, color: Colors.red),
                       onPressed: () {
                         setState(() {
-                          nama.removeAt(index);
+                          Provider.of<Contact>(context, listen: false)
+                              .delete(index);
                         });
                       },
                     ),

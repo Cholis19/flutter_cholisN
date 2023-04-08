@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+import 'main.dart';
 
 class Contact with ChangeNotifier {
   List<String> lisname = [];
   List<String> lisnomor = [];
 
-  void add(List<String> contact) {
-    lisname.add(contact as String);
+  void addlis(List<String> contact) {
+    lisname.add(lisname as String);
     lisnomor.add(contact as String);
+    notifyListeners();
+  }
+
+  void delete(int index) {
+    lisname.remove(index);
     notifyListeners();
   }
 }

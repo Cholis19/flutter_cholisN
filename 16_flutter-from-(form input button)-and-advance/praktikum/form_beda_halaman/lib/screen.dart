@@ -14,6 +14,7 @@ class _FormInputState extends State<FormInput> {
   final _formKey = GlobalKey<FormState>();
   final _nama = TextEditingController();
   final _nomor = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,13 +60,11 @@ class _FormInputState extends State<FormInput> {
                   ),
                   ElevatedButton(
                       onPressed: () {
-                        if (_formKey.currentState!.validate()) {}
+                        Navigator.pop(context, MyHomePage);
                         setState(() {
                           nama.add(_nama.text);
                           nomor.add(_nomor.text);
                         });
-
-                        Navigator.pop(context);
                       },
                       child: Text('Simpan')),
                 ]))));

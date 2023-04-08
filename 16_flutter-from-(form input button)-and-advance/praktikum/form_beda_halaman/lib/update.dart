@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'main.dart';
+import 'screen.dart';
 
 class FormUpdate extends StatefulWidget {
   const FormUpdate({super.key});
@@ -10,38 +10,47 @@ class FormUpdate extends StatefulWidget {
 }
 
 class _FormUpdateState extends State<FormUpdate> {
+  List nama = [];
+  List nomor = [];
+  final _formKey = GlobalKey<FormState>();
+  final _nama = TextEditingController();
+  final _nomor = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Update Contact'),
+          title: Text('create kontak'),
         ),
         body: SafeArea(
+            key: _formKey,
             child: Padding(
                 padding: const EdgeInsets.all(25.0),
                 child: Column(children: [
                   SizedBox(height: 20),
                   Icon(Icons.phone_android),
                   Text(
-                    'Create New Contacts',
+                    'Update Contacts',
                     style: TextStyle(fontSize: 25),
                   ),
                   SizedBox(height: 20),
                   Text(
                     'Membuat validasi. Untuk mengambil data yang diketika gunakan value. Di dalam validator ini kalian bebas membuat validasi sesuai dengan selera. Bisa untuk validasi email, numeric, password, dll.',
                     style: TextStyle(fontSize: 15),
+                    textAlign: TextAlign.justify,
                   ),
                   SizedBox(height: 10),
-                  TextField(
-                      decoration: new InputDecoration(
-                    hintText: "masukan nama ",
-                    labelText: "Nama Kontak",
-                    icon: Icon(Icons.people),
-                    border: OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(5.0),
-                    ),
-                  )),
                   TextFormField(
+                      controller: _nama,
+                      decoration: new InputDecoration(
+                        hintText: "masukan nama ",
+                        labelText: "Nama Kontak",
+                        icon: Icon(Icons.people),
+                        border: OutlineInputBorder(
+                          borderRadius: new BorderRadius.circular(5.0),
+                        ),
+                      )),
+                  TextFormField(
+                    controller: _nomor,
                     keyboardType: TextInputType.phone,
                     decoration: new InputDecoration(
                       hintText: "contoh: 0812xxxxxxx",
@@ -51,7 +60,17 @@ class _FormUpdateState extends State<FormUpdate> {
                           borderRadius: new BorderRadius.circular(5.0)),
                     ),
                   ),
-                  ElevatedButton(onPressed: () {}, child: Text('Update'))
+                  ElevatedButton(
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {}
+                        setState(() {
+                          nama.add(_nama.text);
+                          nomor.add(_nomor.text);
+                        });
+
+                        Navigator.pop(context);
+                      },
+                      child: Text('Simpan')),
                 ]))));
   }
 }
