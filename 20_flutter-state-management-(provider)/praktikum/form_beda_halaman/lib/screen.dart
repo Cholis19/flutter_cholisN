@@ -21,7 +21,7 @@ class _FormInputState extends State<FormInput> {
         appBar: AppBar(
           title: Text('create kontak'),
         ),
-        body: SafeArea(
+        body: Form(
             key: _formKey,
             child: Padding(
                 padding: const EdgeInsets.all(25.0),
@@ -48,6 +48,7 @@ class _FormInputState extends State<FormInput> {
                       borderRadius: new BorderRadius.circular(5.0),
                     ),
                   )),
+                  SizedBox(height: 10),
                   TextFormField(
                     keyboardType: TextInputType.phone,
                     decoration: new InputDecoration(
@@ -60,11 +61,14 @@ class _FormInputState extends State<FormInput> {
                   ),
                   ElevatedButton(
                       onPressed: () {
-                        Navigator.pop(context, MyHomePage);
                         setState(() {
                           nama.add(_nama.text);
                           nomor.add(_nomor.text);
                         });
+                        Navigator.pop(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyHomePage()));
                       },
                       child: Text('Simpan')),
                 ]))));
