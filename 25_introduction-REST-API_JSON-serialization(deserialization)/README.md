@@ -19,6 +19,7 @@ representational state transfer application programming interface
 #### pola komunikasi
 >- client mengirim request
 >- server mengolah dan membalas dengan memberi response
+![rest api](https://user-images.githubusercontent.com/90263441/230787393-67f6f212-7d06-4f27-9031-4d8f1a43f9d9.png)
 
 
 ## 3. Dio
