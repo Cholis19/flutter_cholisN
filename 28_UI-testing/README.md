@@ -34,6 +34,84 @@ umumnya package testing sudah terinstal sejak project pertama kali dibuat, tetap
 >- printah flutter test akan menjalankan seluruh file test yang dibuat
 >- hasil dari perintah ini adalah lamanya waktu pengujian, total pengujian yang dilakukan, dan pesan bahwa pengujian berhasil.
 
+
+# OUTPUT BUILD FLUTTER
+
+## - topik bahansan
+**1. apa itu output build**
+**2. build apk**
+**3. mengatur nama aplikasi**
+**4. mengatur ikon aplikasi**
+**5. build IPA**
+**6. bonus**
+
+
+## 1. apa itu output build
+#### deskripsi
+>- file/berkas hasil keluaran dari project flutter
+>- digunakan untuk merilis aplikasi ke app store
+>- terdiri dari format APK atau AAB untuk android dan IPA untuk IOS
+
+#### mode build
+>- mode debug
+>- mode profile
+>- mode release
+
+## 2. build APK
+#### deskripsi
+>- hanya dapat berjalan di android
+>- memiliki format .apk
+>- dapat di install langsung pada perangkat android
+
+#### proses sebelum APK
+>- mengatur nama aplikasi di AndroidManifest.xlm
+>- mengatur ikon aplikasi
+>- mengatur perizinan aplikasi di AndroidManifest.xlm
+
+##### persiapan
+buat project bary beri nama counter_app
+
+#### AndroidManifest.xlm
+>- file yang berisi informasi penting tentang aplikasi android, seperti nama, komponen, permission, dan fitur hardware aplikasi
+>- terletak di 3 folder untuk setiap mode build debug, release/main dan profile
+
+## 3. mengatur nama aplikasi
+#### langkah-langkah
+##### step 1
+ubah property android:label pada AndroidManifest.xml yang ada di folder **android/app/src/main/AndroidManifest.xml**
+##### step 2
+stop dan jalankan aplikasi
+
+## 4. mengatur ikon aplikasi
+#### langkah-langkah
+>- step 1: men-generate ikon menggunakan website
+>- step 2: download zip file hasil generate
+>- step 3: unzip hasil download
+>- step 4: copy seluruh folder mipmap ke project flutter
+>- step 5: stop dan jalankan ulang aplikasi
+
+## 5. build APK
+#### deskripsi
+>- hasil output hanya dapat berjalan di IOS
+>- memiliki format .ipa
+>- perlu mendaftar aku ke **Apple Developer Program**
+>- perintah build hanya dapat berjalan atau dijalankan pada perangkat apple
+
+#### info.plist
+>- tempat konfigurasi data informasi mengenai aplikasi IOS
+>- berada di folder io/Runner/info.plist
+>- untu mengatur nama aplikasi, ubah nama di dalam tag string dibawah key bunle name yang ada di info.plist
+
+## 6. bonus
+#### package rename
+mengubah nama aplikasi menggunakan package **rename**
+#### persiapan
+buat project baru beri nama **bonus**
+#### langkah-langkah
+>- step 1: install package **rename**
+>- step 2: jalankan perintah pada terminal
+>- step 3: stop dan jalankan ulang aplikasi
+
    [git-repo-url]: <https://github.com/joemccann/dillinger.git>
    [john gruber]: <http://daringfireball.net>
    [df1]: <http://daringfireball.net/projects/markdown/>
