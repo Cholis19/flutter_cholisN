@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'main.dart';
 
 class Contact with ChangeNotifier {
-  List<String> lisname = [];
-  List<String> lisnomor = [];
+  List<Map<String, dynamic>> listnama = [];
+  List<Map<String, dynamic>> listnomor = [];
 
-  void addlis(List<String> contact) {
-    lisname.add(lisname as String);
-    lisnomor.add(contact as String);
+  void addlis(Map<String, dynamic> contact) {
+    listnama.add(contact);
+    listnomor.add(contact);
     notifyListeners();
   }
 
   void delete(int index) {
-    lisname.removeAt(index);
+    listnama.removeAt(index);
     notifyListeners();
   }
 }

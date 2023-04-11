@@ -12,8 +12,8 @@ void main() {
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(
-        create: (_) => Contact(),
-      )
+        create: (contex) => Contact(),
+      ),
     ],
     child: MyApp(),
   ));
@@ -87,31 +87,31 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       body: Form(
-        child: SafeArea(
-          child: ListView.builder(
-            itemCount: nama.length,
-            itemBuilder: (context, index) {
+        child: Consumer<Contact>(
+            builder: (BuildContext context, Contact provider, Widget? child) {
+          return ListView.builder(
+            itemCount: provider.listnama.length,
+            itemBuilder: (BuildContext, int index) {
               return Card(
                   child: ListTile(
                 title: Text(
-                  nama[index],
+                  provider.listnama[index]['nama'],
                 ),
                 subtitle: Text(
-                  nomor[index],
+                  provider.listnomor[index]['nomor'],
                 ),
                 leading: CircleAvatar(
-                  child: Text(nama[index][0]),
+                  child: Text(
+                    provider.listnama[index][0].toString(),
+                  ),
                 ),
                 trailing: Wrap(
                   children: [
                     IconButton(
                       icon: Icon(Icons.edit, color: Colors.grey),
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => FormUpdate(),
-                            ));
+                        provider.listnama;
+                        provider.listnomor;
                       },
                     ),
                     SizedBox(width: 10),
@@ -128,8 +128,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ));
             },
-          ),
-        ),
+          );
+        }),
       ),
     );
   }

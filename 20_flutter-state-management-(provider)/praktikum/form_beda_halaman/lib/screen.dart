@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:form_advanc/contact.dart';
+import 'package:provider/provider.dart';
 import 'main.dart';
 
 class FormInput extends StatefulWidget {
@@ -9,11 +11,15 @@ class FormInput extends StatefulWidget {
 }
 
 class _FormInputState extends State<FormInput> {
-  List nama = [];
-  List nomor = [];
   final _formKey = GlobalKey<FormState>();
-  final _nama = TextEditingController();
-  final _nomor = TextEditingController();
+  final TextEditingController _namaController = TextEditingController();
+  final TextEditingController _nomorController = TextEditingController();
+  @override
+  void dispose() {
+    _namaController.dispose();
+    _nomorController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,16 +46,25 @@ class _FormInputState extends State<FormInput> {
                   ),
                   SizedBox(height: 10),
                   TextFormField(
-                      decoration: new InputDecoration(
-                    hintText: "masukan nama ",
-                    labelText: "Nama Kontak",
-                    icon: Icon(Icons.people),
-                    border: OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(5.0),
+                    controller: _namaController,
+                    decoration: new InputDecoration(
+                      hintText: "masukan nama ",
+                      labelText: "Nama Kontak",
+                      icon: Icon(Icons.people),
+                      border: OutlineInputBorder(
+                        borderRadius: new BorderRadius.circular(5.0),
+                      ),
                     ),
-                  )),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Data tidak boleh kosong';
+                      }
+                      return null;
+                    },
+                  ),
                   SizedBox(height: 10),
                   TextFormField(
+                    controller: _nomorController,
                     keyboardType: TextInputType.phone,
                     decoration: new InputDecoration(
                       hintText: "contoh: 0812xxxxxxx",
@@ -58,17 +73,22 @@ class _FormInputState extends State<FormInput> {
                       border: OutlineInputBorder(
                           borderRadius: new BorderRadius.circular(5.0)),
                     ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Data tidak boleh kosong';
+                      }
+                      return null;
+                    },
                   ),
                   ElevatedButton(
                       onPressed: () {
-                        setState(() {
-                          nama.add(_nama.text);
-                          nomor.add(_nomor.text);
-                        });
-                        Navigator.pop(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const MyHomePage()));
+                        if (_formKey.currentState!.validate()) {
+                          Provider.of<Contact>(context, listen: false).addlis({
+                            'nama': _namaController.text,
+                            'nomor': _nomorController.text,
+                          });
+                          Navigator.pop(context);
+                        }
                       },
                       child: Text('Simpan')),
                 ]))));
