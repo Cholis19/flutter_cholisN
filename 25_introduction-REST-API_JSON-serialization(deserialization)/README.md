@@ -1,5 +1,49 @@
+# REST API CLIENT
 
-   [dill]: <https://github.com/joemccann/dillinger>
+## - topik bahansan
+**1. Rest API**
+**2. HTTP**
+**3. dio**
+**4. serilisasi JSON**
+
+## 1. RESt API
+representational state transfer application programming interface
+#### deskrispi
+>- arsitektural yang memisahkan tampilan dengan proses bisnis
+>- bagian tampilan dengan proses bisnis berkirim data melalui HTTP request
+
+## 2. HTTP
+#### deskripsi
+>- protokol yang digunakan untuk berkirim data pada internet, biasanya data tersebut berbentuk media web.
+
+#### pola komunikasi
+>- client mengirim request
+>- server mengolah dan membalas dengan memberi response
+![rest api](https://user-images.githubusercontent.com/90263441/230787393-67f6f212-7d06-4f27-9031-4d8f1a43f9d9.png)
+
+
+## 3. Dio
+#### deskrispi
+>- sebagai HTTP client
+>- dimanfaatkan untuk melakukan REST API
+
+#### instalasi
+>- tambahkan dependency pada pubspec.yaml
+>- jalankan perintah flutter pub get pada terminal
+
+
+## 4. serialisasi JSON
+##### deskripsi
+>- javascript object notation
+>- cara penulisan data
+>- umum digunakan pada REST API
+
+#### serialisasi JSON
+mengubah struktur data ke bentuk JSON
+
+#### deserialisasi JSON
+mengubah bentuk JSON ke struktur data  
+
    [git-repo-url]: <https://github.com/joemccann/dillinger.git>
    [john gruber]: <http://daringfireball.net>
    [df1]: <http://daringfireball.net/projects/markdown/>
