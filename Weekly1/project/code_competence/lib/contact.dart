@@ -47,12 +47,6 @@ class _contact extends State<contact> {
   final _nomor = TextEditingController();
   int _selectedIndex = 0;
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
