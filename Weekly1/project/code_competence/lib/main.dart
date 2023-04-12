@@ -32,6 +32,8 @@ class _MyHomePageState extends State<MyHomePage> {
   final _question = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
+  get screenWidth => null;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -233,6 +235,22 @@ class _MyHomePageState extends State<MyHomePage> {
               SizedBox(
                 height: 80,
               ),
+              Text(
+                "About us",
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Container(
+                  width: screenWidth,
+                  padding: EdgeInsets.all(8),
+                  child: Text(
+                    'Our products are known for their high quality and durability. Product A is a top seller, with features such as a long-lasting battery and a sleek design. Product B is easy to use and customize, making it a popular choice for a wide range of users. Product C is energy efficient and environmentally friendly, making it a great option for those who are looking for a more sustainable solution. All of our products come with a satisfaction guarantee and excellent customer support.',
+                    style: Theme.of(context).textTheme.bodyText2,
+                    textAlign: TextAlign.justify,
+                  ))
             ])),
       ]),
     );
