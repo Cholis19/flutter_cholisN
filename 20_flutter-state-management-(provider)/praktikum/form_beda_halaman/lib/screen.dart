@@ -46,6 +46,7 @@ class _FormInputState extends State<FormInput> {
                   ),
                   SizedBox(height: 10),
                   TextFormField(
+                    key: Key('addname'),
                     controller: _namaController,
                     decoration: new InputDecoration(
                       hintText: "masukan nama ",
@@ -64,6 +65,7 @@ class _FormInputState extends State<FormInput> {
                   ),
                   SizedBox(height: 10),
                   TextFormField(
+                    key: Key('addnumber'),
                     controller: _nomorController,
                     keyboardType: TextInputType.phone,
                     decoration: new InputDecoration(
