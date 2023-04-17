@@ -21,6 +21,16 @@ void main() async {
       'https://my-json-server.typicode.com/hadihammurabi/flutter-webservice/contacts/2';
   var dataMap = jsonDecode(dataJson);
   print(dataMap);
+
+  //put dio
+  final Response responses =
+      await dio.put('https://jsonplaceholder.typicode.com/posts/1', data: {
+    ' id': '1',
+    'title': 'foo',
+    'body': 'bar',
+    'userId': '1',
+  });
+  print(responses);
 }
 
 class Service {
@@ -28,7 +38,7 @@ class Service {
     postmodel modeldata;
     String json =
         await ("https://my-json-server.typicode.com/hadihammurabi/flutter-webservice/contacts/2");
-    String dataJson = jsonDecode(json);
+    var dataJson = jsonDecode(json);
     modeldata = postmodel.fromJson(dataJson);
     return modeldata;
   }
