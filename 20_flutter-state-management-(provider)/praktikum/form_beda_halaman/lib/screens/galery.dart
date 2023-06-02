@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'scGalery.dart';
-import 'main.dart';
+import 'package:form_advanc/screens/scgalery.dart';
+
+import '../main.dart';
 
 class galery extends StatefulWidget {
   const galery({super.key});
@@ -37,7 +38,7 @@ class _galeryState extends State<galery> {
         ),
         itemCount: foto.length,
         itemBuilder: (context, index) {
-          return  GestureDetector(
+          return new GestureDetector(
             onTap: () {
               showModalBottomSheet(
                   context: context,
@@ -48,10 +49,12 @@ class _galeryState extends State<galery> {
                             nama: foto[index].assetName),
                         actions: <Widget>[
                           TextButton(
+                            key: Key('cancel_button'),
                             onPressed: () => Navigator.pop(context, 'Cancel'),
                             child: const Text('Cancel'),
                           ),
                           TextButton(
+                            key: Key('ok_button'),
                             onPressed: () => Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -61,19 +64,7 @@ class _galeryState extends State<galery> {
                             child: const Text('OK'),
                           ),
                         ],
-                      )
-                  // scGalery(
-                  //     image: foto[index].assetName, nama: foto[index].assetName),
-
-                  );
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => scGalery(
-              //         image: foto[index].assetName,
-              //         nama: foto[index].assetName),
-              //   ),
-              // );
+                      ));
             },
             child: Container(
               decoration: BoxDecoration(
@@ -84,7 +75,6 @@ class _galeryState extends State<galery> {
               ),
             ),
           );
-          // Item rendering
         },
       ),
     );
